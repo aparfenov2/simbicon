@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\CD">
+      <UniqueIdentifier>{69afa5d7-cb6b-4dc3-a338-64d2b9ce1e83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Joint">
+      <UniqueIdentifier>{65bcd046-8709-4045-8307-6afa3bd939b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\CD">
+      <UniqueIdentifier>{af261ca3-2075-47fe-94ce-3471f50a6fb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Joint">
+      <UniqueIdentifier>{21094a99-ef03-41d0-afd6-7adf945de11a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArticulatedFigure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArticulatedRigidBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RBProperties.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RBState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RBUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCDP.cpp">
+      <Filter>Source Files\CD</Filter>
+    </ClCompile>
+    <ClCompile Include="CapsuleCDP.cpp">
+      <Filter>Source Files\CD</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionDetectionPrimitive.cpp">
+      <Filter>Source Files\CD</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaneCDP.cpp">
+      <Filter>Source Files\CD</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCDP.cpp">
+      <Filter>Source Files\CD</Filter>
+    </ClCompile>
+    <ClCompile Include="BallInSocketJoint.cpp">
+      <Filter>Source Files\Joint</Filter>
+    </ClCompile>
+    <ClCompile Include="HingeJoint.cpp">
+      <Filter>Source Files\Joint</Filter>
+    </ClCompile>
+    <ClCompile Include="Joint.cpp">
+      <Filter>Source Files\Joint</Filter>
+    </ClCompile>
+    <ClCompile Include="UniversalJoint.cpp">
+      <Filter>Source Files\Joint</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractRBEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ODEWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\slice\Simbice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArticulatedFigure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArticulatedRigidBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RBProperties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RBState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RBUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCDP.h">
+      <Filter>Header Files\CD</Filter>
+    </ClInclude>
+    <ClInclude Include="CapsuleCDP.h">
+      <Filter>Header Files\CD</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionDetectionPrimitive.h">
+      <Filter>Header Files\CD</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneCDP.h">
+      <Filter>Header Files\CD</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereCDP.h">
+      <Filter>Header Files\CD</Filter>
+    </ClInclude>
+    <ClInclude Include="BallInSocketJoint.h">
+      <Filter>Header Files\Joint</Filter>
+    </ClInclude>
+    <ClInclude Include="HingeJoint.h">
+      <Filter>Header Files\Joint</Filter>
+    </ClInclude>
+    <ClInclude Include="Joint.h">
+      <Filter>Header Files\Joint</Filter>
+    </ClInclude>
+    <ClInclude Include="UniversalJoint.h">
+      <Filter>Header Files\Joint</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractRBEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ODEWorld.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

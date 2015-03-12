@@ -1,0 +1,36 @@
+Структура каталогов на рабочей среде
+--------------------------------------
+.
+├── client					// клиент (только контроллер SIMBICON и модель робота)
+│   ├── data -> ../data				// ссылка на каталог data
+│   ├── init -> ../init				// ссылка на каталог init
+│   ├── prj					// проект Eclipse
+│   │   ├── data -> ../data
+│   │   ├── init -> ../init
+│   │   └── src -> ../src
+│   ├── slice -> ../ipc/slice
+│   └── src -> ../svn/2tier/client/src
+├── data -> ../simbicon/svn/data
+├── init -> ../simbicon/svn/init
+├── ipc
+│   └── slice -> ../svn/2tier/slice
+├── linux-notck					// порт исходного кода SIMBICON на Linux
+│   ├── data -> ../data
+│   ├── init -> ../init
+│   ├── prj
+│   │   ├── data -> ../data
+│   │   ├── init -> ../init
+│   │   └── src -> ../src
+│   ├── src -> ../svn/standalone/src
+├── server					// серверная часть (симулятор физики и отрисовка)
+│   ├── data -> ../data
+│   ├── init -> ../init
+│   ├── prj
+│   │   ├── data -> ../data
+│   │   ├── init -> ../init
+│   │   └── src -> ../src
+│   ├── slice -> ../ipc/slice
+│   └── src -> ../svn/2tier/server/src
+├── svn						// клон репозитария
+└── wsp						// воркспейс Eclipse
+

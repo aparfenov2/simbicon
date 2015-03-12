@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\block">
+      <UniqueIdentifier>{4c0af5f3-4be7-4272-8917-14efac9ecb90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vector">
+      <UniqueIdentifier>{41ab8562-13b6-4672-959a-aa6ccffe1736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\matrix">
+      <UniqueIdentifier>{34d67411-657d-40e0-8f87-afff92cdde8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\blas">
+      <UniqueIdentifier>{df5feb92-9c99-4d92-ab69-9e48b0920230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\block">
+      <UniqueIdentifier>{c4cf043f-8cb4-41d5-918b-241a82e6a32b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\vector">
+      <UniqueIdentifier>{3ae61a59-d25d-45c8-a7e7-0cb2868ad55e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\matrix">
+      <UniqueIdentifier>{a2b93114-6094-4b72-8659-5631b885098d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\blas">
+      <UniqueIdentifier>{20530ee9-3bd5-4f84-8dff-0ab33b528d3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="block\block.c">
+      <Filter>Source Files\block</Filter>
+    </ClCompile>
+    <ClCompile Include="block\file.c">
+      <Filter>Source Files\block</Filter>
+    </ClCompile>
+    <ClCompile Include="block\init.c">
+      <Filter>Source Files\block</Filter>
+    </ClCompile>
+    <ClCompile Include="vector\copy.c">
+      <Filter>Source Files\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="vector\file.c">
+      <Filter>Source Files\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="vector\init.c">
+      <Filter>Source Files\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="vector\minmax.c">
+      <Filter>Source Files\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="vector\oper.c">
+      <Filter>Source Files\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="vector\prop.c">
+      <Filter>Source Files\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="vector\swap.c">
+      <Filter>Source Files\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="vector\vector.c">
+      <Filter>Source Files\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\copy.c">
+      <Filter>Source Files\matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\file.c">
+      <Filter>Source Files\matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\getset.c">
+      <Filter>Source Files\matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\init.c">
+      <Filter>Source Files\matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\matrix.c">
+      <Filter>Source Files\matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\minmax.c">
+      <Filter>Source Files\matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\oper.c">
+      <Filter>Source Files\matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\prop.c">
+      <Filter>Source Files\matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix\swap.c">
+      <Filter>Source Files\matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="blas\blas.c">
+      <Filter>Source Files\blas</Filter>
+    </ClCompile>
+    <ClCompile Include="blas\cblas.c">
+      <Filter>Source Files\blas</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gsl_errno.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gsl_math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gsl_nan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gsl_pow_int.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gsl_precision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gsl_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="templates_off.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="templates_on.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="block\gsl_block.h">
+      <Filter>Header Files\block</Filter>
+    </ClInclude>
+    <ClInclude Include="block\gsl_block_double.h">
+      <Filter>Header Files\block</Filter>
+    </ClInclude>
+    <ClInclude Include="block\gsl_check_range.h">
+      <Filter>Header Files\block</Filter>
+    </ClInclude>
+    <ClInclude Include="vector\gsl_vector.h">
+      <Filter>Header Files\vector</Filter>
+    </ClInclude>
+    <ClInclude Include="vector\gsl_vector_double.h">
+      <Filter>Header Files\vector</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\gsl_matrix.h">
+      <Filter>Header Files\matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\gsl_matrix_double.h">
+      <Filter>Header Files\matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="blas\cblas.h">
+      <Filter>Header Files\blas</Filter>
+    </ClInclude>
+    <ClInclude Include="blas\f2c.h">
+      <Filter>Header Files\blas</Filter>
+    </ClInclude>
+    <ClInclude Include="blas\gsl_blas.h">
+      <Filter>Header Files\blas</Filter>
+    </ClInclude>
+    <ClInclude Include="blas\gsl_blas_types.h">
+      <Filter>Header Files\blas</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

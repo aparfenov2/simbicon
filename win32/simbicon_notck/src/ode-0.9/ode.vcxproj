@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3EC14E21-CDC2-4262-A0B8-7EE6A0166B47}</ProjectGuid>
+    <RootNamespace>ode</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\binaries\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\ode-0.9\include;..\ode-0.9\OPCODE; ./; ../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;ODE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <AdditionalIncludeDirectories>..\ode-0.9\include;..\ode-0.9\OPCODE; ./; ../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;ODE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ode\src\array.cpp" />
+    <ClCompile Include="ode\src\box.cpp" />
+    <ClCompile Include="ode\src\capsule.cpp" />
+    <ClCompile Include="ode\src\collision_cylinder_box.cpp" />
+    <ClCompile Include="ode\src\collision_cylinder_plane.cpp" />
+    <ClCompile Include="ode\src\collision_cylinder_sphere.cpp" />
+    <ClCompile Include="ode\src\collision_cylinder_trimesh.cpp" />
+    <ClCompile Include="ode\src\collision_kernel.cpp" />
+    <ClCompile Include="ode\src\collision_quadtreespace.cpp" />
+    <ClCompile Include="ode\src\collision_space.cpp" />
+    <ClCompile Include="ode\src\collision_transform.cpp" />
+    <ClCompile Include="ode\src\collision_trimesh_box.cpp" />
+    <ClCompile Include="ode\src\collision_trimesh_ccylinder.cpp" />
+    <ClCompile Include="ode\src\collision_trimesh_distance.cpp" />
+    <ClCompile Include="ode\src\collision_trimesh_opcode.cpp" />
+    <ClCompile Include="ode\src\collision_trimesh_plane.cpp" />
+    <ClCompile Include="ode\src\collision_trimesh_ray.cpp" />
+    <ClCompile Include="ode\src\collision_trimesh_sphere.cpp" />
+    <ClCompile Include="ode\src\collision_trimesh_trimesh.cpp" />
+    <ClCompile Include="ode\src\collision_util.cpp" />
+    <ClCompile Include="ode\src\convex.cpp" />
+    <ClCompile Include="ode\src\cylinder.cpp" />
+    <ClCompile Include="ode\src\error.cpp" />
+    <ClCompile Include="ode\src\export-dif.cpp" />
+    <ClCompile Include="ode\src\fastdot.c" />
+    <ClCompile Include="ode\src\fastldlt.c" />
+    <ClCompile Include="ode\src\fastlsolve.c" />
+    <ClCompile Include="ode\src\fastltsolve.c" />
+    <ClCompile Include="ode\src\heightfield.cpp" />
+    <ClCompile Include="ode\src\joint.cpp" />
+    <ClCompile Include="ode\src\lcp.cpp" />
+    <ClCompile Include="ode\src\mass.cpp" />
+    <ClCompile Include="ode\src\mat.cpp" />
+    <ClCompile Include="ode\src\matrix.cpp" />
+    <ClCompile Include="ode\src\memory.cpp" />
+    <ClCompile Include="ode\src\misc.cpp" />
+    <ClCompile Include="ode\src\obstack.cpp" />
+    <ClCompile Include="ode\src\ode.cpp" />
+    <ClCompile Include="ode\src\odemath.cpp" />
+    <ClCompile Include="ode\src\plane.cpp" />
+    <ClCompile Include="ode\src\quickstep.cpp" />
+    <ClCompile Include="ode\src\ray.cpp" />
+    <ClCompile Include="ode\src\rotation.cpp" />
+    <ClCompile Include="ode\src\sphere.cpp" />
+    <ClCompile Include="ode\src\step.cpp" />
+    <ClCompile Include="ode\src\stepfast.cpp" />
+    <ClCompile Include="ode\src\testing.cpp" />
+    <ClCompile Include="ode\src\timer.cpp" />
+    <ClCompile Include="ode\src\util.cpp" />
+    <ClCompile Include="OPCODE\OPC_AABBCollider.cpp" />
+    <ClCompile Include="OPCODE\OPC_AABBTree.cpp" />
+    <ClCompile Include="OPCODE\OPC_BaseModel.cpp" />
+    <ClCompile Include="OPCODE\OPC_BoxPruning.cpp" />
+    <ClCompile Include="OPCODE\OPC_Collider.cpp" />
+    <ClCompile Include="OPCODE\OPC_HybridModel.cpp" />
+    <ClCompile Include="OPCODE\OPC_LSSCollider.cpp" />
+    <ClCompile Include="OPCODE\OPC_MeshInterface.cpp" />
+    <ClCompile Include="OPCODE\OPC_Model.cpp" />
+    <ClCompile Include="OPCODE\OPC_OBBCollider.cpp" />
+    <ClCompile Include="OPCODE\OPC_OptimizedTree.cpp" />
+    <ClCompile Include="OPCODE\OPC_PlanesCollider.cpp" />
+    <ClCompile Include="OPCODE\OPC_RayCollider.cpp" />
+    <ClCompile Include="OPCODE\OPC_SphereCollider.cpp" />
+    <ClCompile Include="OPCODE\OPC_SweepAndPrune.cpp" />
+    <ClCompile Include="OPCODE\OPC_TreeBuilders.cpp" />
+    <ClCompile Include="OPCODE\OPC_TreeCollider.cpp" />
+    <ClCompile Include="OPCODE\OPC_VolumeCollider.cpp" />
+    <ClCompile Include="OPCODE\Opcode.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceAABB.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceContainer.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceHPoint.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceIndexedTriangle.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceMatrix3x3.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceMatrix4x4.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceOBB.cpp" />
+    <ClCompile Include="OPCODE\Ice\IcePlane.cpp" />
+    <ClCompile Include="OPCODE\Ice\IcePoint.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceRandom.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceRay.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceRevisitedRadix.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceSegment.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceTriangle.cpp" />
+    <ClCompile Include="OPCODE\Ice\IceUtils.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_boxpruning.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_contact.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_math.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_memory.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_tri_tri_overlap.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_trimesh.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_trimesh_capsule_collision.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_trimesh_ray_collision.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_trimesh_sphere_collision.cpp" />
+    <ClCompile Include="GIMPACT\src\gim_trimesh_trimesh_collision.cpp" />
+    <ClCompile Include="GIMPACT\src\gimpact.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OPCODE\Ice\IceAABB.h" />
+    <ClInclude Include="OPCODE\Ice\IceAxes.h" />
+    <ClInclude Include="OPCODE\Ice\IceBoundingSphere.h" />
+    <ClInclude Include="OPCODE\Ice\IceContainer.h" />
+    <ClInclude Include="OPCODE\Ice\IceFPU.h" />
+    <ClInclude Include="OPCODE\Ice\IceHPoint.h" />
+    <ClInclude Include="OPCODE\Ice\IceIndexedTriangle.h" />
+    <ClInclude Include="OPCODE\Ice\IceLSS.h" />
+    <ClInclude Include="OPCODE\Ice\IceMatrix3x3.h" />
+    <ClInclude Include="OPCODE\Ice\IceMatrix4x4.h" />
+    <ClInclude Include="OPCODE\Ice\IceMemoryMacros.h" />
+    <ClInclude Include="OPCODE\Ice\IceOBB.h" />
+    <ClInclude Include="OPCODE\Ice\IcePairs.h" />
+    <ClInclude Include="OPCODE\Ice\IcePlane.h" />
+    <ClInclude Include="OPCODE\Ice\IcePoint.h" />
+    <ClInclude Include="OPCODE\Ice\IcePreprocessor.h" />
+    <ClInclude Include="OPCODE\Ice\IceRandom.h" />
+    <ClInclude Include="OPCODE\Ice\IceRay.h" />
+    <ClInclude Include="OPCODE\Ice\IceRevisitedRadix.h" />
+    <ClInclude Include="OPCODE\Ice\IceSegment.h" />
+    <ClInclude Include="OPCODE\Ice\IceTriangle.h" />
+    <ClInclude Include="OPCODE\Ice\IceTriList.h" />
+    <ClInclude Include="OPCODE\Ice\IceTypes.h" />
+    <ClInclude Include="OPCODE\Ice\IceUtils.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_boxpruning.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_contact.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_geometry.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_math.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_memory.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_radixsort.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_tri_capsule_collision.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_tri_collision.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_tri_sphere_collision.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gim_trimesh.h" />
+    <ClInclude Include="GIMPACT\include\GIMPACT\gimpact.h" />
+    <ClInclude Include="include\ode\collision.h" />
+    <ClInclude Include="include\ode\collision_space.h" />
+    <ClInclude Include="include\ode\collision_trimesh.h" />
+    <ClInclude Include="include\ode\common.h" />
+    <ClInclude Include="include\ode\compatibility.h" />
+    <ClInclude Include="include\ode\config.h" />
+    <ClInclude Include="include\ode\contact.h" />
+    <ClInclude Include="include\ode\error.h" />
+    <ClInclude Include="include\ode\export-dif.h" />
+    <ClInclude Include="include\ode\mass.h" />
+    <ClInclude Include="include\ode\matrix.h" />
+    <ClInclude Include="include\ode\memory.h" />
+    <ClInclude Include="include\ode\misc.h" />
+    <ClInclude Include="include\ode\objects.h" />
+    <ClInclude Include="include\ode\ode.h" />
+    <ClInclude Include="include\ode\odecpp.h" />
+    <ClInclude Include="include\ode\odecpp_collision.h" />
+    <ClInclude Include="include\ode\odemath.h" />
+    <ClInclude Include="include\ode\rotation.h" />
+    <ClInclude Include="include\ode\timer.h" />
+    <ClInclude Include="ode\src\array.h" />
+    <ClInclude Include="ode\src\collision_kernel.h" />
+    <ClInclude Include="ode\src\collision_space_internal.h" />
+    <ClInclude Include="ode\src\collision_std.h" />
+    <ClInclude Include="ode\src\collision_transform.h" />
+    <ClInclude Include="ode\src\collision_trimesh_internal.h" />
+    <ClInclude Include="ode\src\collision_util.h" />
+    <ClInclude Include="ode\src\heightfield.h" />
+    <ClInclude Include="ode\src\joint.h" />
+    <ClInclude Include="ode\src\lcp.h" />
+    <ClInclude Include="ode\src\mat.h" />
+    <ClInclude Include="ode\src\objects.h" />
+    <ClInclude Include="ode\src\obstack.h" />
+    <ClInclude Include="ode\src\quickstep.h" />
+    <ClInclude Include="ode\src\step.h" />
+    <ClInclude Include="ode\src\testing.h" />
+    <ClInclude Include="ode\src\util.h" />
+    <ClInclude Include="OPCODE\OPC_AABBCollider.h" />
+    <ClInclude Include="OPCODE\OPC_AABBTree.h" />
+    <ClInclude Include="OPCODE\OPC_BaseModel.h" />
+    <ClInclude Include="OPCODE\OPC_BoxBoxOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_BoxPruning.h" />
+    <ClInclude Include="OPCODE\OPC_Collider.h" />
+    <ClInclude Include="OPCODE\OPC_Common.h" />
+    <ClInclude Include="OPCODE\OPC_HybridModel.h" />
+    <ClInclude Include="OPCODE\OPC_IceHook.h" />
+    <ClInclude Include="OPCODE\OPC_LSSAABBOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_LSSCollider.h" />
+    <ClInclude Include="OPCODE\OPC_LSSTriOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_MeshInterface.h" />
+    <ClInclude Include="OPCODE\OPC_Model.h" />
+    <ClInclude Include="OPCODE\OPC_OBBCollider.h" />
+    <ClInclude Include="OPCODE\OPC_OptimizedTree.h" />
+    <ClInclude Include="OPCODE\OPC_PlanesAABBOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_PlanesCollider.h" />
+    <ClInclude Include="OPCODE\OPC_PlanesTriOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_RayAABBOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_RayCollider.h" />
+    <ClInclude Include="OPCODE\OPC_RayTriOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_Settings.h" />
+    <ClInclude Include="OPCODE\OPC_SphereAABBOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_SphereCollider.h" />
+    <ClInclude Include="OPCODE\OPC_SphereTriOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_SweepAndPrune.h" />
+    <ClInclude Include="OPCODE\OPC_TreeBuilders.h" />
+    <ClInclude Include="OPCODE\OPC_TreeCollider.h" />
+    <ClInclude Include="OPCODE\OPC_TriBoxOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_TriTriOverlap.h" />
+    <ClInclude Include="OPCODE\OPC_VolumeCollider.h" />
+    <ClInclude Include="OPCODE\Opcode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

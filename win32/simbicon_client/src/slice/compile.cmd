@@ -1,0 +1,1 @@
+slice2cpp -I..\slice Simbice.ice
