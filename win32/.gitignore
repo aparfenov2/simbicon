@@ -1,8 +1,10 @@
 Debug
+Release
+binaries
 data
 out
 ipch
 *.opensdf
 *.sdf
 *.suo
-binaries
+*.user

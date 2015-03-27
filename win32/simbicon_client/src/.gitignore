@@ -1,14 +1,1 @@
-Debug
-Release
-/binaries
-/data
-/ipch
-
-*.sdf
-*.user
-/_UpgradeReport_Files
-*.suo
 /ode-0.9/docs
-*.opensdf
-/AppGUI/init
-/AppGUI/out
