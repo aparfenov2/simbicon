@@ -48,7 +48,7 @@ public:
 
 	bool newState_has;
 	Simbice::AllState newState;
-	IceUtil::Mutex newStateMtx;
+//	IceUtil::Mutex newStateMtx;
 public:
 
 	ODEWorldImpl();
@@ -60,10 +60,10 @@ public:
 	virtual void advanceInTime(double deltaT);
 
 	void acceptNewState(const Simbice::AllState &state) {
-		newStateMtx.lock();
+//		newStateMtx.lock();
 		newState = newState;
 		newState_has = true;
-		newStateMtx.unlock();
+//		newStateMtx.unlock();
 	}
 
 	void saveState(Simbice::AllState &state);
@@ -229,17 +229,18 @@ void ODEWorldImpl::advanceInTime(double deltaT) {
 	// send torques
 	server->acceptClientState(oldState, ident);
 
-
-	if (newState_has) {
-
-		Simbice::AllState tmp;
-		newStateMtx.lock();
-		tmp = newState;
-		newState_has = false;
-		newStateMtx.unlock();
-
-		restoreState(newState);
-
+	while (!newState_has) {
+		Sleep(1);
 	}
+
+
+	Simbice::AllState tmp;
+//		newStateMtx.lock();
+	tmp = newState;
+	newState_has = false;
+//		newStateMtx.unlock();
+
+	restoreState(newState);
+
 }
 
