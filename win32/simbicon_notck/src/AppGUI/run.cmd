@@ -1,1 +1,1 @@
-..\binaries\release\appgui.exe
+..\binaries\debug\appgui.exe
