@@ -115,8 +115,11 @@ bool SimBiConFramework::advanceInTime(double dt, bool applyControl, bool recompu
 	con->computeTorques(pw->getContactForces());
 	con->applyTorques();
 
+	static double oldTimestamp = 0;
 	// send state to server
-	pw->advanceInTime(dt);
+	double timestamp = pw->advanceInTime(oldTimestamp);
+	dt = timestamp - oldTimestamp;
+	oldTimestamp = timestamp;
 	// receive new state from server
 
 	bool newFSMState = (con->advanceInTime(dt, pw->getContactForces()) != -1);

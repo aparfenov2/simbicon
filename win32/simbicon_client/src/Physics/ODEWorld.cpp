@@ -57,7 +57,7 @@ public:
 		communicator->destroy();
 	}
 
-	virtual void advanceInTime(double deltaT);
+	virtual double advanceInTime(double oldTS) override;
 
 	void acceptNewState(const Simbice::AllState &state) {
 //		newStateMtx.lock();
@@ -225,26 +225,25 @@ void ODEWorldImpl::restoreState(const Simbice::AllState &state) {
 /**
 	This method is used to integrate the forward simulation in time.
 */
-void ODEWorldImpl::advanceInTime(double deltaT) {
+double ODEWorldImpl::advanceInTime(double oldTS) {
 
 
 	Simbice::AllState oldState;
 	saveState(oldState);
+	oldState.absoluteTime = oldTS;
 	// send torques
 	server->acceptClientState(oldState, ident);
 
-	//while (!newState_has) {
-	//	Sleep(1);
-	//}
-
-	if (newState_has) {
-
-		Simbice::AllState tmp;
-		tmp = newState;
-		newState_has = false;
-
-		restoreState(tmp);
+	while (!newState_has) {
+		Sleep(1);
 	}
 
+
+	Simbice::AllState tmp;
+	tmp = newState;
+	newState_has = false;
+
+	restoreState(tmp);
+	return tmp.absoluteTime;
 }
 
