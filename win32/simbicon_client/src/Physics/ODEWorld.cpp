@@ -61,7 +61,7 @@ public:
 
 	void acceptNewState(const Simbice::AllState &state) {
 //		newStateMtx.lock();
-		newState = newState;
+		newState = state;
 		newState_has = true;
 //		newStateMtx.unlock();
 	}
@@ -110,6 +110,7 @@ ODEWorldImpl::ODEWorldImpl() {
 
 void ODEWorldImpl::saveState(Simbice::AllState &state) {
 
+// WAS COMMENTED
 	//for (uint i=0;i<objects.size();i++) {
 
 	//	RigidBody *rb = objects[i];
@@ -138,6 +139,9 @@ void ODEWorldImpl::saveState(Simbice::AllState &state) {
 
 	//	state.bodyStates.push_back(rbs);
 	//}
+// WAS COMMENTED ^^^
+
+
 
 	// store torques
 
@@ -229,18 +233,18 @@ void ODEWorldImpl::advanceInTime(double deltaT) {
 	// send torques
 	server->acceptClientState(oldState, ident);
 
-	while (!newState_has) {
-		Sleep(1);
+	//while (!newState_has) {
+	//	Sleep(1);
+	//}
+
+	if (newState_has) {
+
+		Simbice::AllState tmp;
+		tmp = newState;
+		newState_has = false;
+
+		restoreState(tmp);
 	}
-
-
-	Simbice::AllState tmp;
-//		newStateMtx.lock();
-	tmp = newState;
-	newState_has = false;
-//		newStateMtx.unlock();
-
-	restoreState(newState);
 
 }
 

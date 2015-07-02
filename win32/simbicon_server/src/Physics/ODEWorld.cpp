@@ -64,7 +64,6 @@ private:
 
 	bool clientState_has;
 	Simbice::AllState clientState;
-	IceUtil::Mutex clientStateMtx;
 
 	// ODE's id for the simulation world
 	dWorldID worldID;
@@ -213,10 +212,8 @@ public:
 	void restoreState(const Simbice::AllState &state);
 
 	void acceptClientState(const Simbice::AllState &state) {
-		clientStateMtx.lock();
 		clientState = state;
 		clientState_has = true;
-		clientStateMtx.unlock();
 	}
 
 };
@@ -240,19 +237,7 @@ public:
 	}
 
 	virtual void acceptClientState(const ::Simbice::AllState& clientState, const ::Ice::Identity& ident, const ::Ice::Current& current) override {
-		if (!world->clientState_has) {
-			world->acceptClientState(clientState);
-		}
-
-	// pause during update
-	// apply torques
-	//world->restoreState(oldState);
-	// release lock to continue simulation
-
-	//world->advanceInTime(SimGlobals::dt);
-	//Simbice::AllState newState;
-	//world->saveState(newState);
-	//return newState;
+		world->acceptClientState(clientState);
 	}
 };
 
@@ -800,6 +785,7 @@ void ODEWorld::runTest(){
 
 void ODEWorld::restoreState(const Simbice::AllState &state) {
 
+// WAS COMMENTED
 	//for (auto it = state.bodyStates.begin(); it != state.bodyStates.end(); it++) {
 
 	//	Simbice::RBState rbs = *it;
@@ -828,6 +814,7 @@ void ODEWorld::restoreState(const Simbice::AllState &state) {
 	//	rb->state.angularVelocity.z = rbs.angularVelocity.z;
 
 	//}
+// WAS COMMENTED ^^^
 
 	// restore torques
 
@@ -910,17 +897,20 @@ void ODEWorld::advanceInTime(double deltaT){
 
 	if (!client) return;
 
-	if (clientState_has) {
-		Simbice::AllState tmp;
 
-		clientStateMtx.lock();
+//	if (!clientState_has) return;
+
+	//while (!clientState_has) {
+	//	Sleep(1);
+	//}
+
+	if (clientState_has) {
+
+		Simbice::AllState tmp;
 		tmp = clientState;
 		clientState_has = false;
-		clientStateMtx.unlock();
 
 		restoreState(tmp);
-	} else {
-		goto send_state;
 	}
 
 
