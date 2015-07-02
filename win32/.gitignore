@@ -3,6 +3,7 @@ Release
 binaries
 data
 out
+slice
 ipch
 *.opensdf
 *.sdf

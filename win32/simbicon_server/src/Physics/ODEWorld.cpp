@@ -897,6 +897,7 @@ void ODEWorld::advanceInTime(double deltaT){
 
 	if (!client) return;
 
+	static double absoluteTime = 0;
 
 //	if (!clientState_has) return;
 
@@ -959,8 +960,10 @@ void ODEWorld::advanceInTime(double deltaT){
 	if (client) {
 		Simbice::AllState newState;
 		saveState(newState);
+		newState.absoluteTime = absoluteTime;
 		client->acceptNewState(newState);
 	}
+	absoluteTime += deltaT;
 }
 
 /**

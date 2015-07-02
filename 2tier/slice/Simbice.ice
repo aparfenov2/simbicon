@@ -55,6 +55,7 @@ module Simbice {
         BodyStatesList bodyStates;
         JointStatesList jointStates;
         ContactPointsList contactPoints;
+        double absoluteTime;
     };
 
     interface ClientCallback {

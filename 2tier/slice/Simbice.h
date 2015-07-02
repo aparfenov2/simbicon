@@ -141,6 +141,7 @@ struct AllState
     ::Simbice::BodyStatesList bodyStates;
     ::Simbice::JointStatesList jointStates;
     ::Simbice::ContactPointsList contactPoints;
+    ::Ice::Double absoluteTime;
 };
 
 }
@@ -307,7 +308,7 @@ template<>
 struct StreamableTraits< ::Simbice::AllState>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 3;
+    static const int minWireSize = 11;
     static const bool fixedLength = false;
 };
 
@@ -319,6 +320,7 @@ struct StreamWriter< ::Simbice::AllState, S>
         __os->write(v.bodyStates);
         __os->write(v.jointStates);
         __os->write(v.contactPoints);
+        __os->write(v.absoluteTime);
     }
 };
 
@@ -330,6 +332,7 @@ struct StreamReader< ::Simbice::AllState, S>
         __is->read(v.bodyStates);
         __is->read(v.jointStates);
         __is->read(v.contactPoints);
+        __is->read(v.absoluteTime);
     }
 };
 
