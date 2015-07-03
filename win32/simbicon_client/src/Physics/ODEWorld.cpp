@@ -235,9 +235,8 @@ double ODEWorldImpl::advanceInTime(double oldTS) {
 	server->acceptClientState(oldState, ident);
 
 	while (!newState_has) {
-		Sleep(1);
+		Sleep(0);
 	}
-
 
 	Simbice::AllState tmp;
 	tmp = newState;
