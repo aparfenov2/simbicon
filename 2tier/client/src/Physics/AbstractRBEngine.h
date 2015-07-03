@@ -79,8 +79,9 @@ public:
 
 	/**
 		This method is used to integrate the forward simulation in time.
+		Return : timestamp
 	*/
-	virtual void advanceInTime(double deltaT) = 0;
+	virtual double advanceInTime(double oldTS) = 0;
 
 	/**
 		This method reads a list of rigid bodies from the specified file.
