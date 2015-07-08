@@ -31,7 +31,7 @@
 #include <Utils/Timer.h>
 
 #include <Ice/Ice.h>
-#include <slice/Simbice.h>
+#include "Simbice.h"
 
 
 #define min(a,b) (((a)<(b))?(a):(b))
@@ -64,7 +64,6 @@ private:
 
 	bool clientState_has;
 	Simbice::AllState clientState;
-	IceUtil::Mutex clientStateMtx;
 
 	// ODE's id for the simulation world
 	dWorldID worldID;
@@ -213,10 +212,8 @@ public:
 	void restoreState(const Simbice::AllState &state);
 
 	void acceptClientState(const Simbice::AllState &state) {
-		clientStateMtx.lock();
 		clientState = state;
 		clientState_has = true;
-		clientStateMtx.unlock();
 	}
 
 };
@@ -233,26 +230,14 @@ public:
 	SimbiceImpl(ODEWorld *_world) {
 		world = _world;
 	}
-	virtual void addClient(const ::Ice::Identity& ident, const ::Ice::Current& current) override {
+	virtual void addClient(const ::Ice::Identity& ident, const ::Ice::Current& current) {
 		if (!world->client) {
 			world->client = Simbice::ClientCallbackPrx::uncheckedCast(current.con->createProxy(ident));
 		}
 	}
 
-	virtual void acceptClientState(const ::Simbice::AllState& clientState, const ::Ice::Identity& ident, const ::Ice::Current& current) override {
-		if (!world->clientState_has) {
-			world->acceptClientState(clientState);
-		}
-
-	// pause during update
-	// apply torques
-	//world->restoreState(oldState);
-	// release lock to continue simulation
-
-	//world->advanceInTime(SimGlobals::dt);
-	//Simbice::AllState newState;
-	//world->saveState(newState);
-	//return newState;
+	virtual void acceptClientState(const ::Simbice::AllState& clientState, const ::Ice::Identity& ident, const ::Ice::Current& current) {
+		world->acceptClientState(clientState);
 	}
 };
 
@@ -264,6 +249,7 @@ ODEWorld::ODEWorld() : AbstractRBEngine(){
 
 	jointFeedbackCount = 0;
 	//Initialize the world, simulation space and joint groups
+	dInitODE();
     worldID = dWorldCreate();
     spaceID = dHashSpaceCreate(0);
 	contactGroupID = dJointGroupCreate(0);
@@ -911,17 +897,21 @@ void ODEWorld::advanceInTime(double deltaT){
 
 	if (!client) return;
 
-	if (clientState_has) {
-		Simbice::AllState tmp;
+	static double absoluteTime = 0;
 
-		clientStateMtx.lock();
+//	if (!clientState_has) return;
+
+	//while (!clientState_has) {
+	//	Sleep(1);
+	//}
+
+	if (clientState_has) {
+
+		Simbice::AllState tmp;
 		tmp = clientState;
 		clientState_has = false;
-		clientStateMtx.unlock();
 
 		restoreState(tmp);
-	} else {
-		goto send_state;
 	}
 
 
@@ -970,8 +960,10 @@ void ODEWorld::advanceInTime(double deltaT){
 	if (client) {
 		Simbice::AllState newState;
 		saveState(newState);
+		newState.absoluteTime = absoluteTime;
 		client->acceptNewState(newState);
 	}
+	absoluteTime += deltaT;
 }
 
 /**

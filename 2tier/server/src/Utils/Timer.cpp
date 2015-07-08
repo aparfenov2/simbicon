@@ -22,7 +22,7 @@
 */
 
 #include <Utils/Timer.h>
-
+#include <time.h>
 /**
 	This constructor initializes a timer.
 */
@@ -41,6 +41,22 @@ Timer::Timer(){
 Timer::~Timer(){
 }
 
+
+// call this function to start a nanosecond-resolution timer
+struct timespec timer_start(){
+    struct timespec start_time;
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start_time);
+    return start_time;
+}
+
+// call this function to end a timer, returning nanoseconds elapsed as a long
+long timer_end(struct timespec start_time){
+    struct timespec end_time;
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end_time);
+    long diffInNanos = end_time.tv_nsec - start_time.tv_nsec;
+    return diffInNanos;
+}
+
 /**
 	This method resets the starting time.
 */
@@ -48,23 +64,21 @@ void Timer::restart(){
 //	DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), (DWORD_PTR)1);
 //	QueryPerformanceCounter((LARGE_INTEGER *)&this->startTime);
 //	SetThreadAffinityMask(GetCurrentThread(), oldmask);
-
+	this->startTime = timer_start();
 }
 
 /**
 	This method returns the number of milliseconds that has ellapsed since the timer was restarted.
 */
 double Timer::timeEllapsed(){
-	long long int tempTime;
+	long tempTime;
 	//force the thread to run on CPU 0 because the QPC method is buggy
 //	DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), (DWORD_PTR)1);
 //	QueryPerformanceCounter((LARGE_INTEGER *)&tempTime);
 //	//let it run wild and free again
 //	SetThreadAffinityMask(GetCurrentThread(), oldmask);
-	tempTime = 0;
-	if (tempTime<startTime)
-		return 0;
-	return (tempTime - startTime) / (double)this->frequency;
+	tempTime = timer_end(this->startTime);
+	return (double)tempTime / 1000000.0d;
 }
 
 

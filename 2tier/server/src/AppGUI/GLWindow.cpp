@@ -26,6 +26,7 @@
 #include <include/GLheaders.h>
 #include <GLUtils/GLUtils.h>
 #include "Globals.h"
+#include <pthread.h>
 
 GLWindow::GLWindow(int x, int y, int w, int h){
 	ellapsedTime = 0;
@@ -228,7 +229,9 @@ void GLWindow::draw(){
 		drawAxes();
 
 	//wait until the required ammount of time has passed (respect the desired FPS requirement)
-	while (fpsTimer.timeEllapsed()<1.0/Globals::desiredFrameRate);	
+	while (fpsTimer.timeEllapsed()<1.0/Globals::desiredFrameRate) {
+		pthread_yield();
+	}
 
 	if (Globals::drawFPS)
 		drawFPSandPerf(fpsTimer.timeEllapsed(), timeSpentProcessing/(1/Globals::desiredFrameRate));

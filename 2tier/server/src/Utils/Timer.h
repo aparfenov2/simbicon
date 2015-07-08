@@ -32,9 +32,9 @@
 class Timer{
 private:
 	//this is the start time of the timer, in milliseconds.
-	long long int startTime;
+	struct timespec startTime;
 	//this is the frequency of the performance counter
-	long long int frequency;
+	//long long int frequency;
 public:
 	/**
 		Default constructor - resets the timer for the first time.

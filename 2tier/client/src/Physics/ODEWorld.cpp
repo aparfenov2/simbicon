@@ -34,6 +34,8 @@
 #include <IceUtil/IceUtil.h>
 #include <Simbice.h>
 
+#include <pthread.h>
+
 
 #define MAX_CONTACT_FEEDBACK 200
 
@@ -57,7 +59,7 @@ public:
 		communicator->destroy();
 	}
 
-	virtual double advanceInTime(double oldTS) override;
+	virtual double advanceInTime(double oldTS) ;
 
 	void acceptNewState(const Simbice::AllState &state) {
 //		newStateMtx.lock();
@@ -87,7 +89,7 @@ public:
 		world = _world;
 	}
 
-	virtual void acceptNewState(const ::Simbice::AllState& newState, const ::Ice::Current& ) override {
+	virtual void acceptNewState(const ::Simbice::AllState& newState, const ::Ice::Current& )  {
 		world->acceptNewState(newState);
 	}
 };
@@ -231,7 +233,7 @@ double ODEWorldImpl::advanceInTime(double oldTS) {
 	server->acceptClientState(oldState, ident);
 
 	while (!newState_has) {
-		Sleep(0);
+		pthread_yield();
 	}
 
 	Simbice::AllState tmp;
