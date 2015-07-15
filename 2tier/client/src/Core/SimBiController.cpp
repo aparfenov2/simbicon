@@ -431,7 +431,7 @@ void SimBiController::computeTorques(DynamicArray<ContactPoint> *cfs){
 	}
 
 	//compute the torques now, using the desired pose information - the hip torques will get overwritten below
-	PoseController::computeTorques(cfs);
+	PoseController::computeTorques(cfs); // CFS not used here
 
 	double stanceHipToSwingHipRatio = getStanceFootWeightRatio(cfs);
 
